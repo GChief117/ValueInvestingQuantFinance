@@ -56,7 +56,7 @@ def evaluate_cigar_butt(ticker_symbol, print_report=False):
 
     return None
 
-# Progress bar
+# Scanning for Cigar Butts and Progress bar
 def scan_cigar_butts(csv_path, output_path="cigar_butts_found.csv", limit=100):
     df = pd.read_csv(csv_path)
     tickers = df['Symbol'].dropna().tolist()
@@ -65,6 +65,7 @@ def scan_cigar_butts(csv_path, output_path="cigar_butts_found.csv", limit=100):
 
     print(f"\n🔍 Scanning up to {limit} tickers from {csv_path}...\n")
 
+    #Progress bar
     for ticker in tqdm(tickers[:limit], desc="🔎 Progress", unit="stock"):
         try:
             result = evaluate_cigar_butt(ticker, print_report=True)
