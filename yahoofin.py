@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime
 from tqdm import tqdm  
 
-# ✅ Unchanged: your original evaluation function with condition-based printing
+#Output for Cigar Butt
 def evaluate_cigar_butt(ticker_symbol, print_report=False):
     stock = yf.Ticker(ticker_symbol)
 
@@ -56,7 +56,7 @@ def evaluate_cigar_butt(ticker_symbol, print_report=False):
 
     return None
 
-# ✅ Updated to use tqdm progress bar
+# Progress bar
 def scan_cigar_butts(csv_path, output_path="cigar_butts_found.csv", limit=100):
     df = pd.read_csv(csv_path)
     tickers = df['Symbol'].dropna().tolist()
@@ -82,5 +82,5 @@ def scan_cigar_butts(csv_path, output_path="cigar_butts_found.csv", limit=100):
     else:
         print("\n❌ No cigar butt stocks found.")
 
-# 🔁 Run
-scan_cigar_butts("/Users/gunnarnelson/Desktop/symbols.csv", limit=6834)
+# Run
+scan_cigar_butts("path to.../symbols.csv", limit=6834)
